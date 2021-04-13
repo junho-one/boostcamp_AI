@@ -89,7 +89,7 @@ query와 key의 유사도를 구한 후 softmax 취해 나온 가중치(attentio
 
 
 
-Q_1와 K_1~n을 내적하고 softmax 취해서 첫번쨰 단어와 나머지 단어들 간의 attention score를 구하고, 이 AttentionScore_1~n과 V_1~n을 곱한뒤 더하여(가중평균 or 내적) 첫번째 단어에 대한 최종 encoding vector를 만들어낸다.
+Q\_1와 K\_1\~n을 내적하고 softmax 취해서 첫번쨰 단어와 나머지 단어들 간의 attention score를 구하고, 이 AttentionScore\_1\~n과 V\_1\~n을 곱한뒤 더하여(가중평균 or 내적) 첫번째 단어에 대한 최종 encoding vector를 만들어낸다.
 
 
 
@@ -277,16 +277,16 @@ attention module에 들어가기 전 embedding vector와 결과인 encoding vect
 
 
 기본적일 때
-$$
+$`
 x_{l+2} = F(x_{l+1}, W_{l+1}) = F(F(x_l,W_l), W_{l+1})
-$$
+`$
 
 residual connection
 
 
-$$
+$`
 x_{l+2} = x_{l+1} + F(x_{l+1},W_{l+1}) = x_{l} + F(x_l, W_l) + F(x_{l+1}, W_{l+1})
-$$
+`$
 보면 수식이 곱셈 기반에서 덧셈 기반으로 바뀐 것을 확인할 수 있다.
 
 이를 통해 rnn에서 처럼 곱셈을 반복하면서 gradient가 사라지던 문제를 해결한게 아닐까?
