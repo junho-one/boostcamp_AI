@@ -150,13 +150,13 @@ multi head attention을 수행하다보면 d_k 크기를 가진 벡터들을 계
 **이렇게 softmax로 극단적인 1과 0으로 나뉘어지면 gradient 계산시에 softmax 함수의 미분값 역시 0으로 수렴한다..**
 
 
-$$
+```math
 y_i = \frac{e^{z_i}}{\sum_ke^{z_i}} (z_i는\;벡터의\;각\;원소\;값)
-$$
+```
 
-$$
+```math
 \frac{dy_i}{dz_i} = y_i(1-y_i)\;\;if\;\;i=j,\;\;-y_iy_j\;if\;i\;!=j
-$$
+```
 
 위처럼 어느 값이 0 또는 1이 되어 버리면 두 경우 모두 0이 된다.
 
@@ -277,16 +277,16 @@ attention module에 들어가기 전 embedding vector와 결과인 encoding vect
 
 
 기본적일 때
-$`
+```math
 x_{l+2} = F(x_{l+1}, W_{l+1}) = F(F(x_l,W_l), W_{l+1})
-`$
+```
 
 residual connection
 
 
-$`
+```math
 x_{l+2} = x_{l+1} + F(x_{l+1},W_{l+1}) = x_{l} + F(x_l, W_l) + F(x_{l+1}, W_{l+1})
-`$
+```F
 보면 수식이 곱셈 기반에서 덧셈 기반으로 바뀐 것을 확인할 수 있다.
 
 이를 통해 rnn에서 처럼 곱셈을 반복하면서 gradient가 사라지던 문제를 해결한게 아닐까?
