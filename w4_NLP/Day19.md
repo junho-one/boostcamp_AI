@@ -149,7 +149,7 @@ multi head attention을 수행하다보면 d_k 크기를 가진 벡터들을 계
 
 **이렇게 softmax로 극단적인 1과 0으로 나뉘어지면 gradient 계산시에 softmax 함수의 미분값 역시 0으로 수렴한다..**
 
-
+<img src="https://render.githubusercontent.com/render/math?math=y_i = \frac{e^{z_i}}{\sum_ke^{z_i}} (z_i는\;벡터의\;각\;원소\;값)">
 ```math
 y_i = \frac{e^{z_i}}{\sum_ke^{z_i}} (z_i는\;벡터의\;각\;원소\;값)
 ```
